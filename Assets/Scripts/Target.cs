@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+// INHERITANCE
+public class Target : TargetBase
 {
     public int pointValue;
-    private float minSpeed = 12;
-    private float maxSpeed = 16;
-    private float maxTorque = 10;
-    private float xRange = 4;
-    private float ySpawnPos = -5;
 
     public ParticleSystem explosionPS;
-    private Rigidbody targetRb;
-    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()

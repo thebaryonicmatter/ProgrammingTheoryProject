@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class TargetBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected float minSpeed = 12;
+    protected float maxSpeed = 16;
+    protected float maxTorque = 10;
+    protected float xRange = 4;
+    protected float ySpawnPos = -5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected Rigidbody targetRb;
+    protected GameManager gameManager;
 }
