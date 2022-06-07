@@ -7,10 +7,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isGameActive;
-    public bool paused;
+    // ENCAPSULATION
+    public bool isGameActive { get; set; }
+    public bool paused { get; set; }
+
     private float spawnRate = 0.5f;
-    private float score = 0;
+    private int score = 0;
     private float lives;
 
     public List<GameObject> targets;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // ABSTRACTION
         StartGame(3);
     }
 
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // ABSTRACTION
             PauseGame();
         }
     }
@@ -46,12 +50,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(float newScore)
+    public void UpdateScore(int newScore)
     {
         score += newScore;
         scoreText.text = "Score: " + score;
     }
+
+    // POLYMORPHISM
     public void UpdateLives(int newLives)
+    {
+        lives += newLives;
+        livesText.text = "Lives: " + lives;
+        if (lives <= 0)
+        {
+            GameOver();
+        }
+    }
+    public void UpdateLives(float newLives)
     {
         lives += newLives;
         livesText.text = "Lives: " + lives;
